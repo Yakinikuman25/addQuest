@@ -24,18 +24,17 @@ for(let i = 0; i < plans.length; i++){
     // 処理を行う
     for (let j = 0; j < totalGoal.length; j++){
         addGoal = addGoal + totalGoal[j];
-
         // totalgoalが最後ではなければ「と」語尾につく。
         if(j != totalGoal.length -1){
             addGoal = addGoal + "と";
         }
-
-    };
+    }
     // 行き先を表示する
     console.log("行き先は、" + addGoal + "です。");
 
     // 金額と期間を表示する
     console.log("金額は" + plans[i].cost + "円で、期間は" + plans[i].period + "です。");
+    
     // コンセプトを表示する
     console.log("コンセプトは「" + plans[i].concept + "」");
 
