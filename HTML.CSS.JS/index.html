@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>加算アプリ</title>
+</head>
+<body>
+
+  <h2>加算アプリ</h2>
+
+  <!-- 入力欄 -->
+  <input type="number" id="num1" placeholder="数値1">
+  <input type="number" id="num2" placeholder="数値2">
+
+  <!-- ボタン -->
+  <button onclick="calculate()">加算</button>
+
+  <!-- 結果表示 -->
+  <input type="text" id="result" placeholder="結果" readonly>
+
+  <script>
+    // 加算関数
+    function add(a, b) {
+      return a + b;
+    }
+
+    // ボタン押下時の処理
+    function calculate() {
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+
+      const sum = add(num1, num2);
+
+      document.getElementById("result").value = sum;
+    }
+  </script>
+
+</body>
+</html>
