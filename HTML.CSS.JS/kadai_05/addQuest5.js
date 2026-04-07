@@ -41,36 +41,6 @@ const okinawa = {
 const plans = [hokkaido, tokyo, osaka, fukuoka, okinawa];
 
 
-// // 線の関数
-// const border = () => {
-//     console.log("-------------------------");
-// }
-
-
-// // ○○行きの関数
-// const userArea = (area) => {
-//     console.log(area + "行き");
-// }
-
-// //○○泊の関数？？ 1泊とかの一つずつの表示をさせるには？
-// const userPeriods = (periods) => {
-//     console.log(periods[i]);
-// }
-
-// // 
-// for(let i =0; i < plans.length; i ++){
-
-// }
-
-
-
-
-
-
-
-
-
-
 // HTMLの出力ボタンのidを取得し定数に代入する
 const userBtn =document.getElementById("user-btn");
 
@@ -101,14 +71,37 @@ userBtn.addEventListener('click', () => {
     console.log(userText);
 
 
-    // 選択したHTMLの目的地(userGoal)とオブジェクトを紐づける
-    let selectGoal = null; //nullで空の変数を作って、if文で選択したものが一致したら代入する
+    // selectPlanに選択したHTMLの目的地のuserGoalとオブジェクトを紐づける
+    let selectPlan = null; //nullで空の変数を作って、if文で選択したものが一致したら代入する
     for (let i = 0; i < plans.length; i++){
         if (userGoal.value === plans[i].area) {
-        selectGoal = plans[i];
+        selectPlan = plans[i];
     };
-        console.log(selectGoal);
     };
+    // 確認用
+    console.log(selectPlan);
+
+    // selectGoalにHTMLで選択したuserGoalとオブジェクトのareaの値を代入する
+    const selectGoal = selectPlan.area;
+    // 確認用
+    console.log(selectGoal);
+
+     // selectStayにHTMLで選択したuserStayを「-1」したものとオブジェクトのperiodsのインデックスの同じ値を代入する
+    // 例：1泊を選択→　HTML：value=1、js：periods[0]が等しくしたいのでHTML：value=1を-1にして0にする。そうすると0=0で同じ値になる。
+    const selectStay = selectPlan.periods[userStay -1];
+    // 確認用
+    console.log(selectStay);
+
+    // selectStayCostにHTMLで選択したuserStayを「-1」したものとオブジェクトのcostのインデックスの同じ値を代入する
+    // 例：1泊を選択→　HTML：value=1、js：cost[0]が等しくしたいのでHTML：value=1を-1にして0にする。そうすると0=0で同じ値になる。
+    const selectStayCost = selectPlan.cost[userStay -1];
+    // 確認用
+    console.log(selectStayCost);
+
+    // 費用総額の計算
+    
+
+
 
 
     // 出力するものをHTMLに表示する
