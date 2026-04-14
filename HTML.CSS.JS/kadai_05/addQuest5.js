@@ -59,8 +59,14 @@ userBtn.addEventListener('click', () => {
     //HTMLのテキストのidを取得し定数に代入する
     const userText = document.getElementById("user-text").value;
 
-    // HTMLの出力結果を表示するidを取得し定数に代入する
-    const output = document.getElementById("output");
+    // HTMLの出力結果を表示するid(1～6)をそれぞれ取得し定数に代入する
+    const output1 = document.getElementById("output1");
+    const output2 = document.getElementById("output2");
+    const output3 = document.getElementById("output3");
+    const output4 = document.getElementById("output4");
+    const output5 = document.getElementById("output5");
+    const output6 = document.getElementById("output6");
+    
 
     
     // 確認用
@@ -142,14 +148,27 @@ userBtn.addEventListener('click', () => {
     console.log("一人当たりの費用" + total);
 
 
+    const put1 = (selectGoal + "行き" + selectStay + "の旅行プランを表示します。");
+    const put2 = ("費用総額は、税込" + totalCost + "円です。");
+    const put3 = ("1人当たりでは、税込" + total + "円になります。");
+    const put4 = ("幹事からのメッセージをいただいております。");
+    const put5 = ("「" + userText + "」");
+    const put6 = ("楽しんでください！");
+
+
     // 出力するものをHTMLに表示する
-    output.innerHTML = 
-    selectGoal + "行き" + selectStay + "の旅行プランを表示します。" 
-    +  "費用総額は、税込" + totalCost + "円です。"
-    + "1人当たりでは、税込" + total + "円になります。"
-    + "幹事からのメッセージをいただいております。"
-    + "「" + userText + "」"
-    + "楽しんでください！";
+    output1.innerHTML = put1;
+    output2.innerHTML = put2;
+    output3.innerHTML = put3;
+    output4.innerHTML = put4;
+    output5.innerHTML = put5;
+    output6.innerHTML = put6;
+    // selectGoal + "行き" + selectStay + "の旅行プランを表示します。" 
+    // +  "費用総額は、税込" + totalCost + "円です。"
+    // + "1人当たりでは、税込" + total + "円になります。"
+    // + "幹事からのメッセージをいただいております。"
+    // + "「" + userText + "」"
+    // + "楽しんでください！";
 
     console.log("--------------------------------");
 
