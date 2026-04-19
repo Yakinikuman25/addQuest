@@ -11,7 +11,7 @@
     <div id="all-goal">
       <label>目的地</label> 
       <select id="user-goal" name="user-goal"> 
-        <option>選択してください</option>
+        <option value="error">選択してください</option>
         <option value="北海道">北海道</option> 
         <option value="東京">東京</option> 
         <option value="大阪">大阪</option> 
@@ -25,7 +25,7 @@
       <!-- 参加人数のドロップダウン -->
       <label>参加人数</label> 
       <select id="user-entrant" name="userEntrant"> 
-        <option>選択してください</option>
+        <option value="error">選択してください</option>
         <option value= "1">1</option> 
         <option value="2">2</option> 
         <option value="3">3</option> 
@@ -54,25 +54,19 @@
     <div id="all-text">
       <!-- テキストを入力 -->
       <label>メッセージ</label> 
-      <textarea id="user-text" name="text">記入してください</textarea>
+      <textarea id="user-text" name="text" placeholder="記入してください"></textarea>
     </div> 
     <br>
 
-    <div id="user-btn">
+    <div>
       <!--ボタン  -->
       <button id="user-btn">出力</button>
     </div>
     <br>
-
-    <!-- 出力結果を表示する -->
-     <p id="output1"></p>
-     <p id="output2"></p>
-     <p id="output3"></p>
-     <p id="output4"></p>
-     <p id="output5"></p>
-     <p id="output6"></p>
-
-
+    
+    <!-- 出力結果を表示する -->    
+    <div id="output">
+    </div>
 
   </div>
   <script src="addQuest5.js"></script>

@@ -40,7 +40,6 @@ const okinawa = {
 
 const plans = [hokkaido, tokyo, osaka, fukuoka, okinawa];
 
-
 // HTMLの出力ボタンのidを取得し定数に代入する
 const userBtn =document.getElementById("user-btn");
 
@@ -58,17 +57,7 @@ userBtn.addEventListener('click', () => {
 
     //HTMLのテキストのidを取得し定数に代入する
     const userText = document.getElementById("user-text").value;
-
-    // HTMLの出力結果を表示するid(1～6)をそれぞれ取得し定数に代入する
-    const output1 = document.getElementById("output1");
-    const output2 = document.getElementById("output2");
-    const output3 = document.getElementById("output3");
-    const output4 = document.getElementById("output4");
-    const output5 = document.getElementById("output5");
-    const output6 = document.getElementById("output6");
-    
-
-    
+  
     // 確認用
     console.log("--------------------------------");
     console.log(userGoal.value);
@@ -77,6 +66,19 @@ userBtn.addEventListener('click', () => {
     console.log(userStay);
     console.log(userText);
 
+    // 目的地の値を確認
+    const userNoGoal =  document.getElementById("user-goal").value;
+    // 宿泊にラジオボタンがクリックされているか確認
+    const userNoStay = document.querySelector("input[name='stay']:checked");
+
+    // 選択されていない箇所がないかエラーチェック
+    if (userNoGoal === "error" || userEntrant ==="error" || !userNoStay || userText ==="") {
+        const error = document.createElement("p");
+        error.style.color = "red";
+        error.textContent = "※全てに項目を入力してください。"
+        document.getElementById("output").appendChild(error);
+        return
+    }
 
     // selectPlanに選択したHTMLの目的地のuserGoalとオブジェクトを紐づける
     let selectPlan = null; //nullで空の変数を作って、if文で選択したものが一致したら代入する
@@ -106,7 +108,7 @@ userBtn.addEventListener('click', () => {
     console.log("宿泊費" + selectStayCost);
 
     // 交通費
-    for(let j = 0; j < plans.length; j++){
+    let carfare;
         // 北海道の場合（人数に関わらず、1泊あたり15,000円）
         if(selectGoal === "北海道"){
             carfare = userStay * 15000;
@@ -132,9 +134,8 @@ userBtn.addEventListener('click', () => {
             carfare = userStay * 10000;
         }
         // 沖縄の場合（6~10人、1泊あたり20,000円）
-        else if(selectGoal === "沖縄" && 5< userEntrant <= 9){
+        else if(selectGoal === "沖縄" && userEntrant > 5 && userEntrant <= 9){
             carfare = userStay * 20000;
-        }
     };
     // 確認用
     console.log("交通費" + carfare);
@@ -147,33 +148,22 @@ userBtn.addEventListener('click', () => {
     const total = Math.floor(totalCost / userEntrant);
     console.log("一人当たりの費用" + total);
 
-
-    const put1 = (selectGoal + "行き" + selectStay + "の旅行プランを表示します。");
-    const put2 = ("費用総額は、税込" + totalCost + "円です。");
-    const put3 = ("1人当たりでは、税込" + total + "円になります。");
-    const put4 = ("幹事からのメッセージをいただいております。");
-    const put5 = ("「" + userText + "」");
-    const put6 = ("楽しんでください！");
-
-
-    // 出力するものをHTMLに表示する
-    output1.innerHTML = put1;
-    output2.innerHTML = put2;
-    output3.innerHTML = put3;
-    output4.innerHTML = put4;
-    output5.innerHTML = put5;
-    output6.innerHTML = put6;
-    // selectGoal + "行き" + selectStay + "の旅行プランを表示します。" 
-    // +  "費用総額は、税込" + totalCost + "円です。"
-    // + "1人当たりでは、税込" + total + "円になります。"
-    // + "幹事からのメッセージをいただいております。"
-    // + "「" + userText + "」"
-    // + "楽しんでください！";
+    // 出力する際に新しくP要素を作成し、定数に代入する
+    const output = document.createElement("p");
+    // 作成するテキストをinnerHTMLを使ってHTMLのタグ付きでHTMLに持っていく
+    output.innerHTML = (
+        selectGoal + "行き" + selectStay + "の旅行プランを表示します。<br>"
+        +  "費用総額は、税込" + totalCost + "円です。<br>"
+        + "1人当たりでは、税込" + total + "円になります。<br>"
+        + "幹事からのメッセージをいただいております。<br>"
+        + "「" + userText + "」<br>"
+        + "楽しんでください！<br>"
+    );
+    // HTMLの出力結果(div id=output)の箇所の下にoutput(p)を表示させる
+    document.getElementById("output").appendChild(output);
 
     console.log("--------------------------------");
-
 });
-
 
 
 
