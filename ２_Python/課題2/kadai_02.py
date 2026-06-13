@@ -37,10 +37,11 @@ for check_result in travel_spots:
     if budget >= check_result ["金額"] and season == check_result ["季節"]:
         result.append(check_result)
 
-for search in result:
-    if search in travel_spots:
-        print(f"{len(result)}件、条件に合う旅行先が見つかりました。")
-        for spot_display in result:
-            print(f"{spot_display["行先"]}：予算{spot_display["金額"]}円")
+if len(result) >0:
+    print(f"{len(result)}件、条件に合う旅行先が見つかりました。")
 else:
     print("条件に合う旅行先はありません。")
+    
+for search in result:
+    if search in travel_spots:
+        print(f"{search["行先"]}：予算{search["金額"]}円")
