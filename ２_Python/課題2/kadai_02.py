@@ -15,11 +15,15 @@ travel_M = {"行先": "新潟県", "金額": 50000, "季節": "冬"}
 travel_spots = [ travel_A, travel_B, travel_C, travel_D, travel_E, travel_F, travel_G, travel_H, travel_I, travel_J, travel_K, travel_L, travel_M]
 
 while True:
-    budget = int(input("予算を入力してください："))
-    if budget > 0:
-        break
+    budget_check = input("予算を入力してください：")
+    if budget_check.isdigit():
+        budget = int(budget_check)
+        if budget > 0:
+            break
+        else:
+            print("0より大きい金額を入力してください")
     else:
-       print("0より大きい金額を入力してください")
+        print("数値を入力してください")
 
 while True:
     season = input("希望する季節を入力してください（春・夏・秋・冬）：")
@@ -27,3 +31,16 @@ while True:
         break
     else:
         print("春夏秋冬いずれかで入力してください")
+
+result = []
+for check_result in travel_spots:
+    if budget >= check_result ["金額"] and season == check_result ["季節"]:
+        result.append(check_result)
+
+for search in result:
+    if search in travel_spots:
+        print(f"{len(result)}件、条件に合う旅行先が見つかりました。")
+        for spot_display in result:
+            print(f"{spot_display["行先"]}：予算{spot_display["金額"]}円")
+    else:
+        print("条件に合う旅行先はありません。")
