@@ -42,5 +42,5 @@ for search in result:
         print(f"{len(result)}件、条件に合う旅行先が見つかりました。")
         for spot_display in result:
             print(f"{spot_display["行先"]}：予算{spot_display["金額"]}円")
-    else:
-        print("条件に合う旅行先はありません。")
+else:
+    print("条件に合う旅行先はありません。")
