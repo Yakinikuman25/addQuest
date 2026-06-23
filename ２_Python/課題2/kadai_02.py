@@ -14,6 +14,7 @@ travel_M = {"行先": "新潟県", "金額": 50000, "季節": "冬"}
 
 travel_spots = [ travel_A, travel_B, travel_C, travel_D, travel_E, travel_F, travel_G, travel_H, travel_I, travel_J, travel_K, travel_L, travel_M]
 
+# 予算を入力し、対象旅行プランを絞る。
 while True:
     budget_check = input("予算を入力してください：")
     if budget_check.isdigit():
@@ -25,6 +26,7 @@ while True:
     else:
         print("数値を入力してください")
 
+# 季節の条件を記入する。春夏秋冬ではない場合は春夏秋冬が記入されるまで繰り返す。
 while True:
     season = input("希望する季節を入力してください（春・夏・秋・冬）：")
     if season in ["春", "夏", "秋", "冬"]:
@@ -32,16 +34,18 @@ while True:
     else:
         print("春夏秋冬いずれかで入力してください")
 
-result = []
+# その条件にあったものをhit_travelにリストで追加する
+hit_travel = []
 for check_result in travel_spots:
     if budget >= check_result ["金額"] and season == check_result ["季節"]:
-        result.append(check_result)
+        hit_travel.append(check_result)
 
-if len(result) >0:
-    print(f"{len(result)}件、条件に合う旅行先が見つかりました。")
+# 条件があった数を表示してない場合はelseで返す
+if len(hit_travel) >0:
+    print(f"{len(hit_travel)}件、条件に合う旅行先が見つかりました。")
 else:
     print("条件に合う旅行先はありません。")
-    
-for search in result:
-    if search in travel_spots:
-        print(f"{search["行先"]}：予算{search["金額"]}円")
+
+# 条件にヒットしたものの行先と予算を表示する
+for search in hit_travel:
+    print(f"{search["行先"]}：予算{search["金額"]}円")
