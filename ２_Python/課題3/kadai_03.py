@@ -30,13 +30,14 @@ while True:
 
     # 宿泊日数の処理
 
-    # 宿泊日数を入力する
-    stay_day_input = input("宿泊日数を入力してください：")
     # 宿泊日数で0以上ではない場合は0以上を記入するまで繰り返す
     while True:
+        # 宿泊日数を入力する
+        stay_day_input = input("宿泊日数を入力してください：")
+        # 宿泊日数が整数かどうかチェックする
         if stay_day_input.isdigit():
             stay_day = int(stay_day_input)
-            # 宿泊日数が整数かどうかチェックする
+            #1以上であるかを確認
             if stay_day > 0:
                 break
             else:
@@ -47,13 +48,14 @@ while True:
 
     # 1泊あたりの金額の処理
 
-    # 1泊あたりの金額を入力する
-    cost_per_night_input = input("1泊あたりの料金を入力してください：")
     # 金額が数値であるか確認処理
     while True:
+        # 1泊あたりの金額を入力する
+        cost_per_night_input = input("1泊あたりの料金を入力してください：")
         # 金額が整数かどうかチェックする
         if cost_per_night_input.isdigit():
             cost_per_night = int(cost_per_night_input)
+            # 1以上かどうか確認
             if cost_per_night > 0:
                 break               
             else:
@@ -70,8 +72,8 @@ while True:
     # 旅行プランの再入力するかの処理
 
     # 旅行プランを追加するかどうかyかnで記入する
-    add_register = input("さらに旅行プランを登録しますか？(y/n)：")
     while True:
+        add_register = input("さらに旅行プランを登録しますか？(y/n)：")
         # yかnなら終了で、その他の場合は再入力
         if add_register == "n" or add_register =="y":
             break
