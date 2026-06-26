@@ -5,7 +5,7 @@ def display_title()-> str:
 # 旅行先・宿泊日数表示関数
 def display_plan(travel_destination: str, stay_day: int):
     print(f"旅行先：{travel_destination}")
-    print(f"宿泊日数：{stay_day}")
+    print(f"宿泊日数：{stay_day}日")
 
 # メッセージ取得関数
 def get_message()-> str:
