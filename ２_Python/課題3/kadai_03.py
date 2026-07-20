@@ -1,5 +1,5 @@
 # タイトル表示関数
-def display_title()-> str:
+def display_title():
     print("===== 旅行プラン登録システム =====")
 
 # 旅行先・宿泊日数表示関数
@@ -9,30 +9,30 @@ def display_plan(travel_destination: str, stay_day: int):
 
 # メッセージ取得関数
 def get_message()-> str:
-    return print("楽しい旅行になりますように！")
+    return "楽しい旅行になりますように！"
 
 # 旅行の総金額計算関数
-def total_cost(cost_per_night, stay_day)-> int:
+def total_cost(cost_per_night: int , stay_day: int)-> int:
     total_cost = cost_per_night * stay_day
     return total_cost
 
 # 実行内容
 while True:
-    # タイトル関数を呼び出す
+    # タイトルを表示する
     display_title()
 
 
     # 旅行先の処理
 
-    #旅行先を入力する
+    #旅行先を入力させる
     travel_destination = input("旅行先を入力してください：")
     
 
     # 宿泊日数の処理
 
-    # 宿泊日数で0以上ではない場合は0以上を記入するまで繰り返す
+    # 宿泊日数で0以上ではない場合は0以上を記入されるまで繰り返す
     while True:
-        # 宿泊日数を入力する
+        # 宿泊日数を入力させる
         stay_day_input = input("宿泊日数を入力してください：")
         # 宿泊日数が整数かどうかチェックする
         if stay_day_input.isdigit():
@@ -48,9 +48,9 @@ while True:
 
     # 1泊あたりの金額の処理
 
-    # 金額が数値であるか確認処理
+    # 金額が数値されるまで繰り返す
     while True:
-        # 1泊あたりの金額を入力する
+        # 1泊あたりの金額を入力されるまで
         cost_per_night_input = input("1泊あたりの料金を入力してください：")
         # 金額が整数かどうかチェックする
         if cost_per_night_input.isdigit():
@@ -79,7 +79,9 @@ while True:
             break
         else:
             print("yかnを入力してください")
-    # nだった場合処理を終了してメッセージを表示させる
+    # nだった場合処理を終了する
     if add_register == "n":
-        get_message()
         break
+message = get_message()
+print(message)
+
